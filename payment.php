@@ -39,23 +39,59 @@
               <div class="my-2">
                 <tbody>
                   <?php
-                    $payments = array(
-                      array("name"=>"Karthi", "payment"=>"First", "bill"=>"00012223" , "amount"=>"DHS 500,000", "balance"=>"05-Jan,2022", "date"=>"08-Dec,2021"),
-                      array("name"=>"Karthi", "payment"=>"First", "bill"=>"00012223" , "amount"=>"DHS 500,000", "balance"=>"05-Jan,2022", "date"=>"08-Dec,2021"),
-                      array("name"=>"Karthi", "payment"=>"First", "bill"=>"00012223" , "amount"=>"DHS 500,000", "balance"=>"05-Jan,2022", "date"=>"08-Dec,2021"),
-                      array("name"=>"Karthi", "payment"=>"First", "bill"=>"00012223" , "amount"=>"DHS 500,000", "balance"=>"05-Jan,2022", "date"=>"08-Dec,2021")
-                    );
-                    foreach($payments as $p_list) {
-                      echo '<tr>';
-                      echo '<th class="fw-normal py-3">'.$p_list['name'].'</th>';
-                      echo '<th class="fw-normal py-3">'.$p_list['payment'].'</th>';
-                      echo '<th class="fw-normal py-3">'.$p_list['bill'].'</th>';
-                      echo '<th class="fw-normal py-3">'.$p_list['amount'].'</th>';
-                      echo '<th class="fw-normal py-3">'.$p_list['balance'].'</th>';
-                      echo '<th class="fw-normal py-3">'.$p_list['date'].'</th>';
-                      echo '<th class="fw-normal py-3"> </th>';
-                      echo '</tr>';
-                    };
+
+
+                    // connecting to the database
+                    $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+                    $query = "SELECT name, payment, bill, amount, balance, date FROM payments";
+
+                    $results = mysqli_query($connection, $query);
+
+                    if (!$results) {
+                      die('Query failed.' . mysqli_error());
+                    }
+
+
+                    //printing results
+
+
+                    while($row = mysqli_fetch_assoc($results)){
+
+                      echo'
+
+                      <tr>
+                      <th class="fw-normal py-3">'.$row['name'].'</th>
+                      <th class="fw-normal py-3">'.$row['payment'].'</th>
+                      <th class="fw-normal py-3">'.$row['bill'].'</th>
+                      <th class="fw-normal py-3">'.$row['amount'].'</th>
+                      <th class="fw-normal py-3">'.$row['balance'].'</th>
+                      <th class="fw-normal py-3">'.$row['date'].'</th>
+                      <th class="fw-normal py-3"> </th>
+                      </tr>
+
+                      ';
+                    }
+
+
+                    // displaying info w an array
+
+                    // $payments = array(
+                    //   array("name"=>"Karthi", "payment"=>"First", "bill"=>"00012223" , "amount"=>"DHS 500,000", "balance"=>"05-Jan,2022", "date"=>"08-Dec,2021"),
+                    //   array("name"=>"Karthi", "payment"=>"First", "bill"=>"00012223" , "amount"=>"DHS 500,000", "balance"=>"05-Jan,2022", "date"=>"08-Dec,2021"),
+                    //   array("name"=>"Karthi", "payment"=>"First", "bill"=>"00012223" , "amount"=>"DHS 500,000", "balance"=>"05-Jan,2022", "date"=>"08-Dec,2021"),
+                    //   array("name"=>"Karthi", "payment"=>"First", "bill"=>"00012223" , "amount"=>"DHS 500,000", "balance"=>"05-Jan,2022", "date"=>"08-Dec,2021")
+                    // );
+                    // foreach($payments as $p_list) {
+                    //   echo '<tr>';
+                    //   echo '<th class="fw-normal py-3">'.$p_list['name'].'</th>';
+                    //   echo '<th class="fw-normal py-3">'.$p_list['payment'].'</th>';
+                    //   echo '<th class="fw-normal py-3">'.$p_list['bill'].'</th>';
+                    //   echo '<th class="fw-normal py-3">'.$p_list['amount'].'</th>';
+                    //   echo '<th class="fw-normal py-3">'.$p_list['balance'].'</th>';
+                    //   echo '<th class="fw-normal py-3">'.$p_list['date'].'</th>';
+                    //   echo '<th class="fw-normal py-3"> </th>';
+                    //   echo '</tr>';
+                    // };
                    ?>
 
 

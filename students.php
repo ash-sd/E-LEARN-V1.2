@@ -72,7 +72,7 @@
                      $enroll = $_POST['enroll'];
                      $date = $_POST['date'];
 
-                     $connection = mysqli_connect('localhost', 'root', '', 'e-learning');
+                     $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
 
 
                      $query = "INSERT INTO students(name, email, phone, enroll, date) ";
@@ -80,10 +80,9 @@
 
                      $results = mysqli_query($connection, $query);
 
-                     echo "
-          <script>
-          window.location.href = 'students.php';
-          </script>";
+                     echo "<script>
+                            window.location.href = 'students.php';
+                          </script>";
 
 
                    }
