@@ -20,7 +20,7 @@
           </div>
           <!-- IDEA: form -->
           <div class="">
-            <form class="" action="index.php" method="post">
+            <form action="login.php" method="post">
               <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input type="email" class="form-control p-2" placeholder="Enter your email">
@@ -30,7 +30,7 @@
                 <input type="text" class="form-control p-2" placeholder="Enter your password">
               </div>
               <div class="d-grid gap-2 my-4">
-                <a href="./index.php" class="d-grid gap-2 text-decoration-none"><button type="button" class="btn btn-primary text-uppercase" style="background-color:#00c1fe;" name="button">Sign in</button></a>
+              <button type="submit" name="submit" class="btn btn-primary text-uppercase" style="background-color:#00c1fe;">Sign in</button>
               </div>
               <p class="text-center">Forgot your Password? <a href="#">Reset Password</a></p>
             </form>
