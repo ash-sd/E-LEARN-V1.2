@@ -23,11 +23,11 @@
             <form action="login.php" method="post">
               <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control p-2" placeholder="Enter your email">
+                <input name="email" type="email" class="form-control p-2" placeholder="Enter your email">
               </div>
               <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="text" class="form-control p-2" placeholder="Enter your password">
+                <input name="password" type="password" class="form-control p-2" placeholder="Enter your password">
               </div>
               <div class="d-grid gap-2 my-4">
               <button type="submit" name="submit" class="btn btn-primary text-uppercase" style="background-color:#00c1fe;">Sign in</button>
