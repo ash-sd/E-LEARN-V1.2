@@ -72,7 +72,7 @@
                      $enroll = $_POST['enroll'];
                      $date = $_POST['date'];
 
-                     $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+                       $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
 
 
                      $query = "INSERT INTO students(name, email, phone, enroll, date) ";
@@ -87,8 +87,12 @@
 
                    }
 
+
+
+
+
                    $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
-                   $query = "SELECT name, email, phone, enroll, date FROM students";
+                     $query = "SELECT id, name, email, phone, enroll, date FROM students";
 
                    $results = mysqli_query($connection, $query);
 
@@ -99,21 +103,40 @@
 
                    //printing results
 
-
+                   ?>
+                   <?php
                    while($row = mysqli_fetch_assoc($results)){
 
-
-                             echo '<tr>
+                     ?>
+                            <tr>
                              <th class="fw-normal"> <img src="./imgs/placeholder.png" width="60px" alt=""> </th>
-                              <th class="fw-normal">'.$row['name'].'</th>
-                              <th class="fw-normal">'.$row['email'].'</th>
-                              <th class="fw-normal">'.$row['phone'].'</th>
-                              <th class="fw-normal">'.$row['enroll'].'</th>
-                              <th class="fw-normal">'.$row['date'].'</th>
-                              <th class="fw-normal">'.'<a href="#"><i class="bi bi-eye"></i></a>'.'</th>
-                              <th class="fw-normal">'.'<a href="#"><i class="bi bi-pencil"></i></a>'.'</th>
-                             </tr>';
+                              <th class="fw-normal"><?php echo $row['name']; ?> </th>
+                              <th class="fw-normal"><?php echo $row['email']; ?> </th>
+                              <th class="fw-normal"><?php echo $row['phone']; ?> </th>
+                              <th class="fw-normal"><?php echo $row['enroll']; ?> </th>
+                              <th class="fw-normal"><?php echo $row['date']; ?> </th>
+                              <th class="fw-normal"><a href="students.php?edit=<?php echo $row['id']; ?> "><i class="bi bi-pencil"></i></a></th>
+                              <th class="fw-normal"><a href="students.php?delete=<?php echo $row['id']; ?> "><i class="bi bi-trash"></i></a></th>
+                            </tr>
+
+                             <?php
                  }
+
+
+                 // if (isset($_GET['delete'])){
+                 //   $anId = $_GET['delete'];
+                 //   $sql = ("DELETE FROM students WHERE id="$anID") or die($mysqli -> error());
+                 //   $newRes = mysqli_query($connection, $sql);
+                 //   if ($newRes) {
+                 //     echo "sdfsf";
+                 //   }
+                 //   else {
+                 //     die(mysqli_error($connection));
+                 //   }
+                 // }
+
+                  ?>
+                 <?php
                    //getting input from the JSON file
 
                    // $std_list = file_get_contents('students.json');

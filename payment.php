@@ -66,7 +66,7 @@
                       <th class="fw-normal py-3">'.$row['amount'].'</th>
                       <th class="fw-normal py-3">'.$row['balance'].'</th>
                       <th class="fw-normal py-3">'.$row['date'].'</th>
-                      <th class="fw-normal py-3"> </th>
+                      <th class="fw-normal">'.'<a href="#"><i class="bi bi-eye"></i></a>'.'</th>
                       </tr>
 
                       ';
