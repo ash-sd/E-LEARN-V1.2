@@ -115,9 +115,32 @@
                               <th class="fw-normal"><?php echo $row['phone']; ?> </th>
                               <th class="fw-normal"><?php echo $row['enroll']; ?> </th>
                               <th class="fw-normal"><?php echo $row['date']; ?> </th>
-                              <th class="fw-normal"><a href="students.php?edit=<?php echo $row['id']; ?> "><i class="bi bi-pencil"></i></a></th>
+                              <th class="fw-normal"><a href="edit.php?edit=<?php echo $row['id']; ?> "><i class="bi bi-pencil"></i></a></th>
                               <th class="fw-normal"><a href="students.php?delete=<?php echo $row['id']; ?> "><i class="bi bi-trash"></i></a></th>
                             </tr>
+
+                            <?php
+
+
+                            }
+
+                            if (isset($_GET['delete'])) {
+                              $id = $_GET['delete'];
+                              $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+                              $query = "DELETE FROM students WHERE id=$id";
+                              $results = mysqli_query($connection, $query);
+                              if ($results) {
+                                echo '<div class="alert alert-success" role="alert">
+                                Succesfully deleted! Please refresh the page.
+                                </div>';
+                              }
+
+
+
+                             ?>
+
+
+
 
                              <?php
                  }
@@ -190,7 +213,7 @@
 
         </div>
       </div>
-      <!-- Modal -->
+      <!-- Add Modal-->
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -229,8 +252,6 @@
           </div>
         </div>
       </div>
-
-
 
 
 
