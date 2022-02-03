@@ -1,4 +1,4 @@
-<?php 
+<?php  $id = $_GET['edit'];
 if (isset($_POST['submit'])) {
 
    $name = $_POST['name'];

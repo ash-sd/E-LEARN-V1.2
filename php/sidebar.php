@@ -19,7 +19,7 @@
     <div class="">
       <div class="d-flex flex-column align-items-center justify-content-center my-5">
         <a href="./index.php" style="background:#00c1fe;" class="rounded p-2 px-5 m-2 text-decoration-none text-dark"><i style="margin-right:10px;" class="bi bi-house-door"></i>Home</a>
-        <a href="#" class="p-2 px-5 m-2 text-decoration-none text-dark"><i style="margin-right:10px;" class="bi bi-bookmark"></i>Course</a>
+        <a href="./courses.php" class="p-2 px-5 m-2 text-decoration-none text-dark"><i style="margin-right:10px;" class="bi bi-bookmark"></i>Course</a>
         <a href="./students.php" class="p-2 px-5 m-2 text-decoration-none text-dark"><i style="margin-right:10px;" class="bi bi-people"></i>Students</a>
         <a href="./payment.php" class="p-2 px-5 m-2 text-decoration-none text-dark"><i style="margin-right:10px;" class="bi bi-currency-dollar"></i>Payment</a>
         <a href="#" class="p-2 px-5 m-2 text-decoration-none text-dark"><i style="margin-right:10px;" class="bi bi-file-bar-graph"></i>Report</a>

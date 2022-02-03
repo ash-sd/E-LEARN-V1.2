@@ -43,7 +43,7 @@
 
                     // connecting to the database
                     $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
-                    $query = "SELECT name, payment, bill, amount, balance, date FROM payments";
+                    $query = "SELECT id, name, payment, bill, amount, balance, date FROM payments";
 
                     $results = mysqli_query($connection, $query);
 
@@ -66,7 +66,7 @@
                       <th class="fw-normal py-3">'.$row['amount'].'</th>
                       <th class="fw-normal py-3">'.$row['balance'].'</th>
                       <th class="fw-normal py-3">'.$row['date'].'</th>
-                      <th class="fw-normal">'.'<a href="#"><i class="bi bi-eye"></i></a>'.'</th>
+                      <th class="fw-normal">'.'<a href="edit.php?view='.$row['id'].'"><i class="bi bi-eye" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></a>'.'</th>
                       </tr>
 
                       ';
@@ -105,8 +105,53 @@
       </div>
 
 
+      <?php
+
+      $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+      $query = "SELECT id, name, payment, bill, amount, balance, date FROM payments";
+
+      $results = mysqli_query($connection, $query);
 
 
+       ?>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Payment details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="students.php" method="post">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Name</label>
+                  <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="disabledInput"  disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Email</label>
+                  <input name="email" type="email" class="form-control" id="exampleInputPassword1" id="disabledInput"  disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Phone</label>
+                  <input name="phone" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="disabledInput"  disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Enroll Number</label>
+                  <input name="enroll" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="disabledInput"  disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Date of Admission</label>
+                  <input name="date" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="disabledInput"  disabled>
+                </div>
+
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" name="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
