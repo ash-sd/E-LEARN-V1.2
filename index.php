@@ -1,3 +1,34 @@
+<?php
+
+$connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+$paymentsQuery = "SELECT * FROM payments";
+$studentsQuery = "SELECT * FROM students";
+$coursesQuery = "SELECT * FROM courses";
+
+
+//paymentsResuts
+$results = mysqli_query($connection, $paymentsQuery);
+$payments = mysqli_num_rows($results);
+
+//coursesResuts
+$results = mysqli_query($connection, $coursesQuery);
+$courses = mysqli_num_rows($results);
+
+
+
+//studentsResuts
+$results2 = mysqli_query($connection, $studentsQuery);
+$students = mysqli_num_rows($results2);
+
+
+
+
+
+ ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -19,14 +50,14 @@
                     <div class="p-2" style="background: #F0F9FF;border-radius: 5px;">
                         <i class="bi bi-mortarboard fs-3" style="color: #74C1ED;"></i>
                         <p class="mb-5">Students</p>
-                        <p class="text-end fw-bold fs-5">243</p>
+                        <p class="text-end fw-bold fs-5"><?php echo $students ?></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 p-2">
                     <div class="p-2" style="background: #FEF6FB;border-radius: 5px;">
                         <i class="bi bi-bookmark fs-3" style="color: #EE95C5;"></i>
                         <p class="mb-5">Course</p>
-                        <p class="text-end fw-bold fs-5">13</p>
+                        <p class="text-end fw-bold fs-5"><?php echo $courses ?></p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 p-2">
