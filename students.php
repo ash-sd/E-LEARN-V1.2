@@ -92,7 +92,7 @@
 
 
                    $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
-                     $query = "SELECT id, name, email, phone, enroll, date FROM students";
+                   $query = "SELECT id, name, email, phone, enroll, date FROM students";
 
                    $results = mysqli_query($connection, $query);
 
