@@ -1,3 +1,35 @@
+<?php
+  if (isset($_POST['submit'])) {
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+
+
+    // echo $firstname . '<br>';
+    // echo $lastname . '<br>';
+    // echo $email . '<br>';
+    // echo $password . '<br>';
+
+    $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+    $import = "SELECT email, password FROM users";
+    $query = "INSERT INTO users(firstname, lastname, email, password) ";
+    $query .= "VALUES ('$firstname', '$lastname', '$email', '$password')";
+
+    $results = mysqli_query($connection, $import);
+    $row = mysqli_fetch_assoc($results);
+
+
+
+  }
+
+
+
+
+
+ ?>
+
 
 
 <!DOCTYPE html>
@@ -5,39 +37,33 @@
   <head>
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>E-Classe | Login</title>
+    <title>E-Classe | Register</title>
   </head>
   <body style="background: linear-gradient(68deg, rgba(0,193,254,1) 16%, rgba(250,255,193,1) 100%); ">
       <div class="vh-100 d-flex justify-content-center align-items-center">
       <div class="mx-auto">
         <?php
+        if (isset($_POST['submit'])) {
 
-          if (isset($_POST['submit'])) {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
-            $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
-            $query = "SELECT email, password FROM users";
-            $results = mysqli_query($connection, $query);
-            $row = mysqli_fetch_assoc($results);
-            if ($row['email'] == $email && $row['password'] == $password) {
-              echo "<script>
-                     window.location.href = 'students.php';
-                   </script>";
-            }
-            else {
-              echo '<div class="alert alert-danger text-center rounded-3 shadow" role="alert">
-              Please enter a valid credentials, or <a href="./register.php">Create</a> a new account.
-              </div>';
-            }
+          if ($row['email'] == $email) {
+            echo '<div class="alert alert-danger text-center rounded-3 shadow" role="alert">
+                  Email already exists.
+                  </div>';
           }
 
+          else ($results) {
+            echo '<div class="alert alert-success text-center rounded-3 shadow" role="alert">
+                  Account succesfully created! You can <a href="./login.php">login</a> now.
+                  </div>';
+
+          }
+
+        }
+
+
+
+
          ?>
-
-
-
-
-
         <div class="bg-white shadow p-5" style="border-radius:20px;">
           <!-- IDEA: logo -->
           <div class="d-flex">
@@ -45,12 +71,20 @@
             <h2 class="m-1 mb-5" style="font-weight:600;">E-Classe</h2>
           </div>
           <div class="text-center mb-5 mx-5">
-            <h3 class="text-uppercase">Sign in</h3>
-            <p class="mx-2">Enter your credentias to access your account</p>
+            <h3 class="">Register</h3>
+            <p class="mx-2">Create an account to access E-Classe</p>
           </div>
           <!-- IDEA: form -->
           <div class="">
-            <form action="login.php" method="post">
+            <form action="register.php" method="post">
+              <div class="mb-3">
+                <label class="form-label">First Name</label>
+                <input name="firstname" type="text" class="form-control p-2" placeholder="Enter your first name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input name="lastname" type="text" class="form-control p-2" placeholder="Enter your last name">
+              </div>
               <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input name="email" type="email" class="form-control p-2" placeholder="Enter your email">
@@ -60,9 +94,9 @@
                 <input name="password" type="password" class="form-control p-2" placeholder="Enter your password">
               </div>
               <div class="d-grid gap-2 my-4">
-              <button type="submit" name="submit" class="btn btn-primary text-uppercase" style="background-color:#00c1fe;">Sign in</button>
+              <button type="submit" name="submit" class="btn btn-primary" style="background-color:#00c1fe;">Register</button>
               </div>
-              <p class="text-center">Forgot your Password? <a href="#">Reset Password</a></p>
+              <p class="text-center">Already have an account? <a href="./login.php">Login</a></p>
             </form>
           </div>
         </div>

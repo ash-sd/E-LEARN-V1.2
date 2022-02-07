@@ -146,20 +146,7 @@
                  }
 
 
-                 // if (isset($_GET['delete'])){
-                 //   $anId = $_GET['delete'];
-                 //   $sql = ("DELETE FROM students WHERE id="$anID") or die($mysqli -> error());
-                 //   $newRes = mysqli_query($connection, $sql);
-                 //   if ($newRes) {
-                 //     echo "sdfsf";
-                 //   }
-                 //   else {
-                 //     die(mysqli_error($connection));
-                 //   }
-                 // }
 
-                  ?>
-                 <?php
                    //getting input from the JSON file
 
                    // $std_list = file_get_contents('students.json');
@@ -180,28 +167,6 @@
 
                    //some retries
 
-                   // for ($i=0; $i <= $std_count ; $i++) {
-                   //     echo '<tr>';
-                   //     echo '<th class="fw-normal"> <img src="./imgs/placeholder.png" width="60px" alt=""> </th>';
-                   //     echo '<th class="fw-normal">'.$stds[$i]->name.'</th>';
-                   //     echo '<th class="fw-normal">'.$stds[$i]->email.'</th>';
-                   //     echo '<th class="fw-normal">'.$stds[$i]->phone.'</th>';
-                   //     echo '<th class="fw-normal">'.$stds[$i]->enroll.'</th>';
-                   //     echo '<th class="fw-normal">'.$stds[$i]->date.'</th>';
-                   //     echo '</tr>';
-                   //     $i++;
-                   // };
-
-                  // foreach($std_list as $std) {
-                  //   echo '<tr>';
-                  //   echo '<th class="fw-normal"> <img src="./imgs/placeholder.png" width="60px" alt=""> </th>';
-                  //   echo '<th class="fw-normal">'.$std->name.'</th>';
-                  //   echo '<th class="fw-normal">'.$std->email.'</th>';
-                  //   echo '<th class="fw-normal">'.$std->phone.'</th>';
-                  //   echo '<th class="fw-normal">'.$std->enroll.'</th>';
-                  //   echo '<th class="fw-normal">'.$std->date.'</th>';
-                  //   echo '</tr>';
-                  // };
                    ?>
                </tbody>
               </div>
