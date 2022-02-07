@@ -52,6 +52,7 @@
                   </div>';
           }
 
+
           else {
             $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
             $query = "INSERT INTO users(firstname, lastname, email, password) ";
@@ -87,19 +88,19 @@
             <form action="register.php" method="post">
               <div class="mb-3">
                 <label class="form-label">First Name</label>
-                <input name="firstname" type="text" class="form-control p-2" placeholder="Enter your first name">
+                <input name="firstname" type="text" class="form-control p-2" placeholder="Enter your first name" required>
               </div>
               <div class="mb-3">
                 <label class="form-label">Last Name</label>
-                <input name="lastname" type="text" class="form-control p-2" placeholder="Enter your last name">
+                <input name="lastname" type="text" class="form-control p-2" placeholder="Enter your last name" required>
               </div>
               <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input name="email" type="email" class="form-control p-2" placeholder="Enter your email">
+                <input name="email" type="email" class="form-control p-2" placeholder="Enter your email" required>
               </div>
               <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input name="password" type="password" class="form-control p-2" placeholder="Enter your password">
+                <input name="password" type="password" class="form-control p-2" placeholder="Enter your password" required>
               </div>
               <div class="d-grid gap-2 my-4">
               <button type="submit" name="submit" class="btn btn-primary" style="background-color:#00c1fe;">Register</button>

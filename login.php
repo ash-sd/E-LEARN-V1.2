@@ -1,7 +1,6 @@
 <?php
   $errormsg = 0;
 
-
  ?>
 
 <!DOCTYPE html>
@@ -26,6 +25,8 @@
             $results = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($results)) {
               if ($row['email'] == $email && $row['password'] == $password) {
+                session_start();
+                session_destroy();
                 session_start();
                 $firstname = $row['firstname'];
                 $lastname = $row['lastname'];
@@ -71,11 +72,11 @@
             <form action="login.php" method="post">
               <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input name="email" type="email" class="form-control p-2" placeholder="Enter your email">
+                <input name="email" type="email" class="form-control p-2" placeholder="Enter your email" required>
               </div>
               <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input name="password" type="password" class="form-control p-2" placeholder="Enter your password">
+                <input name="password" type="password" class="form-control p-2" placeholder="Enter your password" required>
               </div>
               <div class="d-grid gap-2 my-4">
               <button type="submit" name="submit" class="btn btn-primary text-uppercase" style="background-color:#00c1fe;">Sign in</button>

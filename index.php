@@ -12,6 +12,8 @@ if (!$_SESSION['firstname']) {
 $paymentsQuery = "SELECT * FROM payments";
 $studentsQuery = "SELECT * FROM students";
 $coursesQuery = "SELECT * FROM courses";
+$usersQuery = "SELECT * FROM users";
+
 
 
 //paymentsResuts
@@ -19,14 +21,18 @@ $results = mysqli_query($connection, $paymentsQuery);
 $payments = mysqli_num_rows($results);
 
 //coursesResuts
-$results = mysqli_query($connection, $coursesQuery);
-$courses = mysqli_num_rows($results);
+$results1 = mysqli_query($connection, $coursesQuery);
+$courses = mysqli_num_rows($results1);
 
 
 
 //studentsResuts
 $results2 = mysqli_query($connection, $studentsQuery);
 $students = mysqli_num_rows($results2);
+
+//usersQuery
+$results3 = mysqli_query($connection, $usersQuery);
+$users = mysqli_num_rows($results3);
 
 
 
@@ -79,7 +85,7 @@ $students = mysqli_num_rows($results2);
                     <div class="p-2" style="background: linear-gradient(110.42deg, #00C1FE 18.27%, #FAFFC1 91.84%);border-radius: 6px;">
                         <i class="bi bi-person text-white fs-3"></i>
                         <p class="mb-5 text-white">Users</p>
-                        <p class="text-end fw-bold fs-5">3</p>
+                        <p class="text-end fw-bold fs-5"><?php echo $users; ?></p>
                     </div>
 
                 </div>

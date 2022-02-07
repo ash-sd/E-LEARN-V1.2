@@ -1,3 +1,17 @@
+<?php
+
+$connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+session_start();
+if (!$_SESSION['firstname']) {
+  echo "<script>
+         window.location.href = 'login.php';
+       </script>";
+}
+
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
