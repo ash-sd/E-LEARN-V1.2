@@ -6,6 +6,11 @@
     $password = $_POST['password'];
 
 
+    // $hashformat = "$2y$10$";
+    // $salt = "somestringthathas22char";
+    // $hash_n_salt =  $hashformat . $salt;
+    // $password = crypt($password, $hash_n_salt);
+
 
     // echo $firstname . '<br>';
     // echo $lastname . '<br>';
@@ -43,7 +48,7 @@
 
           if ($row['email'] == $email) {
             echo '<div class="alert alert-danger text-center rounded-3 shadow" role="alert">
-                  Email already exists.
+                  Email already exists, Please use another one.
                   </div>';
           }
 

@@ -19,17 +19,20 @@
             $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
             $query = "SELECT email, password FROM users";
             $results = mysqli_query($connection, $query);
-            $row = mysqli_fetch_assoc($results);
-            if ($row['email'] == $email && $row['password'] == $password) {
-              echo "<script>
-                     window.location.href = 'students.php';
-                   </script>";
+            while ($row = mysqli_fetch_assoc($results)) {
+              if ($row['email'] == $email && $row['password'] == $password) {
+                echo "<script>
+                       window.location.href = 'index.php';
+                     </script>";
+              }
+
             }
-            else {
-              echo '<div class="alert alert-danger text-center rounded-3 shadow" role="alert">
-              Please enter a valid credentials, or <a href="./register.php">Create</a> a new account.
-              </div>';
+            if (!$row['password'] == $password) {
+                echo '<div class="::alert alert-danger text-center rounded-3 shadow" role="alert">
+                Please enter a valid credentials, or <a href="./register.php">Create</a> a new account.
+                </div>';
             }
+
           }
 
          ?>
