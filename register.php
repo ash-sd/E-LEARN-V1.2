@@ -12,15 +12,11 @@
     // echo $email . '<br>';
     // echo $password . '<br>';
 
+
     $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
     $import = "SELECT email, password FROM users";
-    $query = "INSERT INTO users(firstname, lastname, email, password) ";
-    $query .= "VALUES ('$firstname', '$lastname', '$email', '$password')";
-
     $results = mysqli_query($connection, $import);
     $row = mysqli_fetch_assoc($results);
-
-
 
   }
 
@@ -51,7 +47,14 @@
                   </div>';
           }
 
-          else ($results) {
+          else {
+            $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+            $query = "INSERT INTO users(firstname, lastname, email, password) ";
+            $query .= "VALUES ('$firstname', '$lastname', '$email', '$password')";
+            $anotherRes = mysqli_query($connection, $query);
+
+
+
             echo '<div class="alert alert-success text-center rounded-3 shadow" role="alert">
                   Account succesfully created! You can <a href="./login.php">login</a> now.
                   </div>';
