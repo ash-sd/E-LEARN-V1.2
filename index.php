@@ -1,6 +1,14 @@
 <?php
 
 $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
+session_start();
+if (!$_SESSION['firstname']) {
+  echo "<script>
+         window.location.href = 'login.php';
+       </script>";
+}
+
+
 $paymentsQuery = "SELECT * FROM payments";
 $studentsQuery = "SELECT * FROM students";
 $coursesQuery = "SELECT * FROM courses";

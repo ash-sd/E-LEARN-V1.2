@@ -1,4 +1,8 @@
+<?php
+  $errormsg = 0;
 
+
+ ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,20 +21,31 @@
             $password = $_POST['password'];
 
             $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
-            $query = "SELECT email, password FROM users";
+            $query = "SELECT firstname, lastname, email, password FROM users";
+
             $results = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($results)) {
               if ($row['email'] == $email && $row['password'] == $password) {
+                session_start();
+                $firstname = $row['firstname'];
+                $lastname = $row['lastname'];
+                $_SESSION["firstname"] = $firstname;
+                $_SESSION["lastname"] = $lastname;
                 echo "<script>
                        window.location.href = 'index.php';
                      </script>";
+
+              }
+
+              else {
+                $errormsg++;
               }
 
             }
-            if (!$row['password'] == $password) {
-                echo '<div class="::alert alert-danger text-center rounded-3 shadow" role="alert">
-                Please enter a valid credentials, or <a href="./register.php">Create</a> a new account.
-                </div>';
+            if ($errormsg) {
+              echo '<div class="alert alert-danger text-center rounded-3 shadow" role="alert">
+              Please enter a valid credentials, or <a href="./register.php">Create</a> a new account.
+              </div>';
             }
 
           }
