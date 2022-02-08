@@ -3,16 +3,16 @@ $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
 session_start();
 if ($_SESSION['firstname']) {
   if (time() - $_SESSION["last_login_timestamp"] > 3) {
+    $_SESSION["logoff"]++;
     echo "<script>
            window.location.href = 'login.php';
          </script>";
   }
   elseif (!$_SESSION['firstname']) {
+    $_SESSION["logoff"]++;
     echo "<script>
            window.location.href = 'login.php';
          </script>";
-  }
-  else {
   }
 }
 

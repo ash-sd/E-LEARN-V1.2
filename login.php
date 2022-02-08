@@ -14,7 +14,13 @@
       <div class="vh-100 d-flex justify-content-center align-items-center">
       <div class="mx-auto">
         <?php
-
+          session_start();
+          error_reporting(0);
+          if ($_SESSION["logoff"]) {
+            echo '<div class="alert alert-danger text-center rounded-3 shadow" role="alert">
+            Session timed out.
+            </div>';
+          }
           if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -25,7 +31,6 @@
             $results = mysqli_query($connection, $query);
             while ($row = mysqli_fetch_assoc($results)) {
               if ($row['email'] == $email && $row['password'] == $password) {
-                session_start();
                 session_destroy();
                 session_start();
                 $firstname = $row['firstname'];
