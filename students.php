@@ -2,10 +2,20 @@
 
 $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
 session_start();
-if (!$_SESSION['firstname']) {
-  echo "<script>
-         window.location.href = 'login.php';
-       </script>";
+if ($_SESSION['firstname']) {
+  if (time() - $_SESSION["last_login_timestamp"] > 3) {
+    echo "<script>
+           window.location.href = 'login.php';
+         </script>";
+  }
+  elseif (!$_SESSION['firstname']) {
+    echo "<script>
+           window.location.href = 'login.php';
+         </script>";
+  }
+  else {
+    echo "currently connected";
+  }
 }
 
 
