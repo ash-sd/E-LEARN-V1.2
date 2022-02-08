@@ -13,7 +13,6 @@ if ($_SESSION['firstname']) {
          </script>";
   }
   else {
-    echo "currently connected";
   }
 }
 
