@@ -2,7 +2,7 @@
 $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
 session_start();
 if ($_SESSION['firstname']) {
-  if (time() - $_SESSION["last_login_timestamp"] > 5) {
+  if (time() - $_SESSION["last_login_timestamp"] > 60) {
     $_SESSION["logoff"]++;
     echo "<script>
            window.location.href = 'login.php';
@@ -137,8 +137,8 @@ if ($_SESSION['firstname']) {
                               <th class="fw-normal"><?php echo $row['phone']; ?> </th>
                               <th class="fw-normal"><?php echo $row['enroll']; ?> </th>
                               <th class="fw-normal"><?php echo $row['date']; ?> </th>
-                              <th class="fw-normal"><a href="edit.php?edit=<?php echo $row['id']; ?> "><i class="bi bi-pencil"></i></a></th>
-                              <th class="fw-normal"><a href="course.php?delete=<?php echo $row['id']; ?> "><i class="bi bi-trash"></i></a></th>
+                              <th class="fw-normal"><a href="edit0.php?edit=<?php echo $row['id']; ?> "><i class="bi bi-pencil"></i></a></th>
+                              <th class="fw-normal"><a href="courses.php?delete=<?php echo $row['id']; ?> "><i class="bi bi-trash"></i></a></th>
                             </tr>
 
                             <?php
