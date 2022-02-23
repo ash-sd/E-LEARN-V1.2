@@ -256,12 +256,15 @@ if ($_SESSION['firstname']) {
 
 
 
-    <style>
-      @media screen and (max-width:1022px) {
-        .vh-100.side_bar{
-          display:none !important;
+      <style>
+        @media screen and (max-width:750px) {
+          .side_bar{
+            display:none;
+          }
+          .side_bar.active{
+            display:block;
+          }
         }
-      }
-    </style>
+      </style>
   </body>
 </html>

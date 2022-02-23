@@ -62,6 +62,7 @@ $users = mysqli_num_rows($results3);
     <title>E-Classe | Dashboard</title>
   </head>
   <body class=" overflow-hidden d-flex">
+
      <?php // IDEA: sidebar ?>
      <?php include 'php/sidebar.php'; ?>
 
@@ -114,7 +115,16 @@ $users = mysqli_num_rows($results3);
 
 
 
-
+      <style>
+        @media screen and (max-width:750px) {
+          .side_bar{
+            display:none;
+          }
+          .side_bar.active{
+            display:block;
+          }
+        }
+      </style>
 
 
 
@@ -128,13 +138,5 @@ $users = mysqli_num_rows($results3);
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <style>
-      @media screen and (max-width:750px) {
-        .vh-100.side_bar{
-          display:none !important;
-        }
-      }
-    </style>
   </body>
 </html>

@@ -8,7 +8,7 @@
 
  ?>
 
-<div style="background:#faffc1; width:320px;" class="vh-100 side_bar">
+<div style="background:#faffc1; width:320px;" class="vh-100 side_bar sideb">
   <div class="container">
     <!-- IDEA: logo -->
     <div class="d-flex p-3">

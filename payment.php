@@ -154,9 +154,12 @@ if ($_SESSION['firstname']) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <style>
-      @media screen and (max-width:837px) {
-        .vh-100.side_bar{
-          display:none !important;
+      @media screen and (max-width:750px) {
+        .side_bar{
+          display:none;
+        }
+        .side_bar.active{
+          display:block;
         }
       }
     </style>
