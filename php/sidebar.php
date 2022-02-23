@@ -8,8 +8,8 @@
 
  ?>
 
-<div style="background:#faffc1; width:320px;" id="sidebar" class="vh-100 side_bar">
-  <div class="container something">
+<div style="background:#faffc1; width:320px;" class="vh-100 side_bar">
+  <div class="container">
     <!-- IDEA: logo -->
     <div class="d-flex p-3">
       <h4 style="color:#00c1fe" class="fw-bolder d-inline">|&nbsp;</h4>
@@ -40,9 +40,3 @@
   </div>
 
  </div>
-
- <style>
-  #sidebar{
-    margin-left:-300px;
-  }
- </style>
